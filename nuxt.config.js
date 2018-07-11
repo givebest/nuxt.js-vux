@@ -1,7 +1,7 @@
 const pkg = require('./package')
 const path = require('path')
 const vuxLoader = require('vux-loader')
-const ROOT = process.cwd()
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   mode: 'universal',
@@ -20,12 +20,12 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'preload',
-        href: '/assets/js/lib/GB-respond.js'
+        href: '/js/lib/GB-respond.js'
       }
     ],
     script: [
       {
-        src: '/assets/js/lib/GB-respond.js',
+        src: '/js/lib/GB-respond.js',
         type: 'text/javascript'
       },
     ]
@@ -68,9 +68,9 @@ module.exports = {
   ],
   // See https://segmentfault.com/a/1190000010815403
   proxy: [
-    ['/assets', {
-      target: 'http://localhost:8889',
-      pathRewrite: { '^/assets': '' }
+    ['/api', {
+      target: 'http://httpbin.org',
+      pathRewrite: { '^/api': '' }
     }]
   ],
   /*
@@ -107,9 +107,10 @@ module.exports = {
           ssr: true
         },
         plugins: ['vux-ui', {
-          name: 'less-theme',
-          path: path.join(__dirname, './assets/css/theme.less')
-        }],
+            name: 'less-theme',
+            path: path.join(__dirname, './assets/css/theme.less')
+          },
+        ],
       })
       return configs
     }

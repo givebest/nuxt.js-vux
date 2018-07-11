@@ -21,6 +21,7 @@
     "@nuxtjs/proxy": "^1.2.4",
     "babel-eslint": "^8.2.1",
     "babel-preset-env": "^1.7.0",
+    "copy-webpack-plugin": "^4.5.2",
     "cross-env": "^5.0.1",
     "eslint": "^5.0.1",
     "eslint-loader": "^2.0.0",

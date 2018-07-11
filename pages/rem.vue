@@ -7,6 +7,9 @@
     <p>
       <img src="/assets/img/display.png" alt="Display">
     </p>
+    <p>
+      <img src="/display.png" alt="Display">
+    </p>
   </section>
 </template>
 
@@ -32,6 +35,20 @@ export default {
   head () {
     return {
       title: 'REM'
+    }
+  },
+  mounted: function () {
+    this.getData()
+  },
+  methods: {
+    getData: function () {
+      this.$axios({
+        method: 'GET',
+        url: '/api/get'
+      })
+      .then(res => {
+        console.log(res)
+      })
     }
   }
 }
