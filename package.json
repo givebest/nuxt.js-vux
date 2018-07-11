@@ -18,6 +18,7 @@
     "vux": "^2.9.2"
   },
   "devDependencies": {
+    "@nuxtjs/proxy": "^1.2.4",
     "babel-eslint": "^8.2.1",
     "babel-preset-env": "^1.7.0",
     "cross-env": "^5.0.1",

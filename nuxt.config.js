@@ -1,6 +1,7 @@
 const pkg = require('./package')
 const path = require('path')
 const vuxLoader = require('vux-loader')
+const ROOT = process.cwd()
 
 module.exports = {
   mode: 'universal',
@@ -62,7 +63,15 @@ module.exports = {
   */
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy'
+  ],
+  // See https://segmentfault.com/a/1190000010815403
+  proxy: [
+    ['/assets', {
+      target: 'http://localhost:8889',
+      pathRewrite: { '^/assets': '' }
+    }]
   ],
   /*
   ** Axios module configuration
@@ -101,17 +110,8 @@ module.exports = {
           name: 'less-theme',
           path: path.join(__dirname, './assets/css/theme.less')
         }],
-        /* devServer: {
-          proxy: {
-            '/assets/*': {
-              target: 'http://localhost:8889/assets/',
-              changeOrigin: false,
-              secure: false
-            }
-          }
-        } */
       })
       return configs
     }
-  }
+  },
 }

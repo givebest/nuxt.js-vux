@@ -32,7 +32,7 @@
   function refreshRem () {
     var width = parseFloat(docEl.getBoundingClientRect().width || docEl.clientWidth),
       fontSize = 100 / designWidth * (width > maxWidth ? maxWidth : width),
-      // Android webView 会被设备字体大小(默认为16px)影响 @see https://github.com/hbxeagle/rem 
+      // Android webView 会被设备字体大小(默认为16px)影响 @see https://github.com/hbxeagle/rem
       finalFontSize = (defaultFontSize !== 16) ? (fontSize * (16 / defaultFontSize)) : fontSize;
       console.log(finalFontSize)
       docEl.style.fontSize = finalFontSize + 'px';

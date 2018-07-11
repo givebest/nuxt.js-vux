@@ -1,6 +1,12 @@
 <template>
   <section class="container">
     1231312
+    <p>
+      <img src="~/assets/img/display.png" alt="Display">
+    </p>
+    <p>
+      <img src="/assets/img/display.png" alt="Display">
+    </p>
   </section>
 </template>
 
@@ -17,6 +23,16 @@ export default {
     Cell,
     CellBox,
     Calendar
+  },
+  data () {
+    return {
+
+    }
+  },
+  head () {
+    return {
+      title: 'REM'
+    }
   }
 }
 </script>
